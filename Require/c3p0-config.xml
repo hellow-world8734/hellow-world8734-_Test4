@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+	<!--使用默认的配置读取数据库连接池对象 本文件必须放在写java代码的目录下的src目录下 -->
+	<default-config>
+		<!--加载驱动的Driver路径 mysql驱动jar包8.0以上的写法 com.mysql.cj.jdbc.Driver -->
+		<!--加载驱动的Driver路径 mysql驱动jar包8.0以下的写法 com.mysql.jdbc.Driver -->
+		<property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+		<!--                IP地址:   端口（mysql安装时默认3306）     要连接的数据库的名字（自己建的库） -->
+		<!--指定连接数据库 localhost:           3306                          /db4 -->
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/db4?erverTimezone=UTC&amp;useSSL=false</property>
+		<!--连接数据库的用户 -->
+		<property name="user">root</property>
+		<!--对应的密码 -->
+		<property name="password">y1234</property>
+
+		<!-- 连接池参数 这个按照需求写就行，没有特别要求可以随便去网上copy一份 -->
+		<!--初始化申请的连接数量 -->
+		<property name="initialPoolSize">5</property>
+		<!--每次增长链接的数 -->
+		<property name="acquireIncrement">5</property>
+		<!--最大的连接数量 -->
+		<property name="maxPoolSize">10</property>
+		<!--最小连接数 -->
+		<property name="minPoolSize">5</property>
+		<!--超时时间 -->
+		<property name="checkoutTimeout">5000</property>
+		<!--每个连接对象可连接的最多的命令对象数 -->
+		<property name="maxStatementsPerConnection">2</property>
+		<!--JDBC的标准参数，用以控制数据源内加载的PreparedStatements数量。但由于预缓存的statements 属于单个connection而不是整个连接池。所以设置这个参数需要考虑到多方面的因素,如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭-->
+		<property name="maxStatements">0</property>
+	</default-config>
+</c3p0-config>
